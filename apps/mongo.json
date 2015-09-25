@@ -1,0 +1,28 @@
+{
+    "id": "/mongo-single-instance",
+    "instances": 1,
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "image": "mongo",
+            "network": "BRIDGE",
+            "portMappings": [
+                {
+                    "containerPort": 27017,
+                    "protocol": "tcp"
+                }
+            ]
+        }
+    },
+    "healthChecks": [{
+        "protocol": "TCP",
+        "gracePeriodSeconds": 600,
+        "intervalSeconds": 30,
+        "portIndex": 0,
+        "timeoutSeconds": 10,
+        "maxConsecutiveFailures": 2
+    }],
+    "ports": [0],
+    "cpus": 0.5,
+    "mem": 256.0
+}
