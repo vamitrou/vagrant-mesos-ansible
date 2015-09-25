@@ -1,0 +1,12 @@
+[Unit]
+Description=Mesos-dns
+After=network.target
+Wants=network.target
+
+[Service]
+ExecStart=/home/vagrant/go/bin/mesos-dns -config=/vagrant/config.json
+Restart=always
+RestartSec=20
+
+[Install]
+WantedBy=multi-user.target
