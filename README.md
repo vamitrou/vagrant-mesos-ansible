@@ -11,3 +11,6 @@ Differences from the guide:
 * Event subscription is enabled in Marathon.
 * Vagrant VM box version is fixed to 2.2.1
 * `oyter` is not included
+
+`apps` folder contains configuration files for Marathon apps. I run them using REST API, e.g.
+```http POST http://192.168.33.10:8080/v2/apps < apps/mongo_webapp.json```
