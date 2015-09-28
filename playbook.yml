@@ -11,8 +11,8 @@
         template: src=./hosts.j2 dest=/etc/hosts
       - name: disable overwritting of resolv file
         lineinfile: >
-          dest=/etc/sysconfig/network-scripts/ifcfg-enp0s8
-          line="PEERDNS=no"
+          dest=/etc/NetworkManager/NetworkManager.conf
+          line="dns=none"
       - name: update the resolv file
         template: src=./resolv.conf.j2 dest=/etc/resolv.conf
       - name: install the mesosphere yum repo
@@ -67,7 +67,9 @@
       - name: update the hosts file
         template: src=./hosts.j2 dest=/etc/hosts
       - name: disable overwritting of resolv file
-        lineinfile: dest=/etc/sysconfig/network-scripts/ifcfg-enp0s8 line="PEERDNS=no"
+        lineinfile: >
+          dest=/etc/NetworkManager/NetworkManager.conf
+          line="dns=none"
       - name: update the resolv file
         template: src=./resolv.conf.j2 dest=/etc/resolv.conf
       - name: install the mesosphere yum repo
